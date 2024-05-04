@@ -1,10 +1,11 @@
-import { Hono } from 'npm:hono'
-import screenshot from './utils/screenshot.ts'
+import { serve } from '@hono/node-server'
+import { Hono } from 'hono'
+import screenshot from '../utils/screenshot'
 
 const app = new Hono()
 
 app.get('/', (c) => {
-  return c.text('Hello Hono on Deno!')
+  return c.text('Hello Hono on Node.js!')
 })
 
 app.post('/screenshot', async (c) => {
@@ -23,4 +24,10 @@ app.post('/screenshot', async (c) => {
   })
 })
 
-Deno.serve(app.fetch)
+const port = 3000
+console.log(`Server is running on port ${port}`)
+
+serve({
+  fetch: app.fetch,
+  port,
+})

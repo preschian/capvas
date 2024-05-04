@@ -1,12 +1,13 @@
-import { launch } from 'https://deno.land/x/astral/mod.ts'
+import { launch } from 'puppeteer'
 
 export default async function ({ width = 300, height = 300, url = '', selector = 'canvas', delay = 0 }) {
   // Launch the browser
   const browser = await launch({})
 
   // Open a new page
-  const page = await browser.newPage(url)
-  page.setViewportSize({
+  const page = await browser.newPage()
+  await page.goto(url)
+  await page.setViewport({
     height,
     width,
   })
