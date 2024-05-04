@@ -6,7 +6,7 @@ export default async function ({ width = 300, height = 300, url = '', selector =
 
   // Open a new page
   const page = await browser.newPage()
-  await page.goto(url)
+  await page.goto(url, { timeout: 30 * 10 * 1000 })
   await page.setViewport({
     height,
     width,
