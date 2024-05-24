@@ -18,7 +18,7 @@ export default async function ({ width = 300, height = 300, url = '', selector =
   }
 
   // Take a screenshot of the element
-  const element = await page.$(selector)
+  const element = await page.waitForSelector(selector)
   const image = await element?.screenshot()
 
   // Close the browser
