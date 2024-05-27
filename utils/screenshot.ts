@@ -1,6 +1,6 @@
 import { launch } from 'puppeteer'
 
-export default async function ({ width = 300, height = 300, url = '', selector = 'canvas', delay = 0 }) {
+export default async function ({ width = 600, height = 600, url = '', selector = 'canvas', delay = 0 }) {
   // Launch the browser
   const browser = await launch({})
 
